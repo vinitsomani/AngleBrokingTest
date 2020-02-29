@@ -39,6 +39,12 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="PXC-EK-X5t"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data To display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80l-bN-8wz">
+                                        <rect key="frame" x="107" y="110" width="200.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -48,6 +54,8 @@
                                     <constraint firstAttribute="bottom" secondItem="qZu-L3-05G" secondAttribute="bottom" constant="20" symbolic="YES" id="cb7-bk-nBN"/>
                                     <constraint firstItem="qZu-L3-05G" firstAttribute="top" secondItem="XME-h9-akQ" secondAttribute="bottom" constant="16" id="dbw-on-UyO"/>
                                     <constraint firstAttribute="trailing" secondItem="qZu-L3-05G" secondAttribute="trailing" constant="20" symbolic="YES" id="h8U-Yk-6o0"/>
+                                    <constraint firstItem="80l-bN-8wz" firstAttribute="centerX" secondItem="ANd-VC-qGv" secondAttribute="centerX" id="lC9-bd-e5P"/>
+                                    <constraint firstItem="80l-bN-8wz" firstAttribute="top" secondItem="XME-h9-akQ" secondAttribute="bottom" constant="50" id="mHO-Ig-hPF"/>
                                     <constraint firstItem="qZu-L3-05G" firstAttribute="leading" secondItem="ANd-VC-qGv" secondAttribute="leading" constant="20" symbolic="YES" id="qYe-Cf-6p6"/>
                                 </constraints>
                             </view>
@@ -77,6 +85,7 @@
                         <outlet property="headingLeadingConstraint" destination="QbZ-ZP-DOQ" id="Vhs-aD-YmA"/>
                         <outlet property="headingTopConstraint" destination="cHO-HL-Yw2" id="zDX-Kd-Z52"/>
                         <outlet property="hoderView" destination="ANd-VC-qGv" id="jWb-yN-I4C"/>
+                        <outlet property="noDataLabel" destination="80l-bN-8wz" id="94t-lX-xzg"/>
                         <outlet property="searchBar" destination="XME-h9-akQ" id="bn2-My-ShD"/>
                         <outlet property="tableView" destination="qZu-L3-05G" id="Rv7-Ee-MQa"/>
                     </connections>

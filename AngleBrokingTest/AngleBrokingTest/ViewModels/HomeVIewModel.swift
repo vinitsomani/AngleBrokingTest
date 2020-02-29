@@ -16,6 +16,16 @@ class HomeViewModel: Any {
     
     weak var delegate: HomeViewModelDelegate?
     var reloadTableView : (() -> Void)? = nil
+    
+    var userFilteredtems: [User] = []
+    {
+        didSet {
+            if let reload = self.reloadTableView {
+                reload()
+            }
+        }
+    }
+    
     var userItems: [User] = []
     {
         didSet {
@@ -24,6 +34,8 @@ class HomeViewModel: Any {
             }
         }
     }
+    
+    var blackList: [String] = []
     
     func callHomeData() {
         var service = Service.init(httpMethod: WebserviceHTTPMethod.get)
@@ -50,5 +62,30 @@ class HomeViewModel: Any {
             }
         }
     }
+    
+    func checkBlackList(text: String) {
+        
+        if text.count == 3 {
+            let isBlocked = blackList.contains { (string) -> Bool in
+                string.lowercased().contains(text.lowercased())
+            }
+            if isBlocked {
+                userFilteredtems = []
+                return
+            }
+        }
+        self.getFilterList(text: text)
+    }
+    
+    func getFilterList(text: String) {
+        let filteredArray = userItems.filter { (user) -> Bool in
+            (user.username?.lowercased().contains(text.lowercased()) ?? false)
+        }
+        self.userFilteredtems = filteredArray
+        if filteredArray.count == 3 {
+            blackList.append(text)
+        }
+    }
+    
 }
 

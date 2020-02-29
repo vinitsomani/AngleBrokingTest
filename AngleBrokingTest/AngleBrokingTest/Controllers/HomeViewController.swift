@@ -24,6 +24,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
     
+    @IBOutlet weak var noDataLabel: UILabel!
+    
+    
     
     var defaultOffSet: CGPoint?
     var labelMaxTop = 130
@@ -48,6 +51,7 @@ class HomeViewController: UIViewController {
     private func configureHomeView() {
         self.tableView.register(UINib(nibName: HomeCellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCellIdentifier)
         searchBar.delegate = self
+        noDataLabel.isHidden = true
         listenToReloadClosure()
         getHomeData()
     }
@@ -74,7 +78,10 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.homeViewModel.userItems.count
+
+        noDataLabel.isHidden = (self.searchBar.text?.count ?? 0 > 2 && self.homeViewModel.userFilteredtems.count == 0) ? false : true
+
+        return self.homeViewModel.userFilteredtems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +90,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let userModel = self.homeViewModel.userItems[indexPath.row]
+        let userModel = self.homeViewModel.userFilteredtems[indexPath.row]
         tableViewCell.populateData(item: userModel)
         return tableViewCell
     }
@@ -137,11 +144,12 @@ extension HomeViewController: UISearchBarDelegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count == 0 {
+            self.homeViewModel.userFilteredtems.removeAll()
             self.tableView.reloadData()
             self.view.endEditing(true)
         }
-        if searchText.count > 1 {
-//            self.homeViewModel.filterMoviesBy(text: searchText)
+        if searchText.count > 2 {
+            self.homeViewModel.checkBlackList(text: searchText)
         }
     }
 }
