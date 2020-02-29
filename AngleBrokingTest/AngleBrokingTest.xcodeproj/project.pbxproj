@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8B05151240A9FDE005D1008 /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B05150240A9FDE005D1008 /* HomeVIewModel.swift */; };
+		B8B05154240AA612005D1008 /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B05153240AA612005D1008 /* HomeDataModel.swift */; };
 		B8F36484240A3A55006655BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F36483240A3A55006655BA /* AppDelegate.swift */; };
 		B8F36486240A3A55006655BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F36485240A3A55006655BA /* SceneDelegate.swift */; };
 		B8F36488240A3A55006655BA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F36487240A3A55006655BA /* HomeViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B8B05150240A9FDE005D1008 /* HomeVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIewModel.swift; sourceTree = "<group>"; };
+		B8B05153240AA612005D1008 /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		B8F36480240A3A55006655BA /* AngleBrokingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngleBrokingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F36483240A3A55006655BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8F36485240A3A55006655BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8B0514D240A9F32005D1008 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8F36487240A3A55006655BA /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B8B0514E240A9F76005D1008 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				B8F3649A240A3EC3006655BA /* HomeTableViewCell.swift */,
+				B8F3649B240A3EC3006655BA /* HomeTableViewCell.xib */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		B8B0514F240A9FAF005D1008 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B8B05150240A9FDE005D1008 /* HomeVIewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B8B05152240AA5F7005D1008 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B8B05153240AA612005D1008 /* HomeDataModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		B8F36477240A3A55006655BA = {
 			isa = PBXGroup;
 			children = (
@@ -64,16 +101,17 @@
 		B8F36482240A3A55006655BA /* AngleBrokingTest */ = {
 			isa = PBXGroup;
 			children = (
+				B8B05152240AA5F7005D1008 /* DataModel */,
+				B8B0514F240A9FAF005D1008 /* ViewModels */,
+				B8B0514D240A9F32005D1008 /* Controllers */,
 				B8F36483240A3A55006655BA /* AppDelegate.swift */,
 				B8F36485240A3A55006655BA /* SceneDelegate.swift */,
-				B8F36487240A3A55006655BA /* HomeViewController.swift */,
 				B8F36489240A3A55006655BA /* Main.storyboard */,
 				B8F3648F240A3A57006655BA /* Assets.xcassets */,
 				B8F36491240A3A57006655BA /* LaunchScreen.storyboard */,
 				B8F36494240A3A57006655BA /* Info.plist */,
 				B8F3648C240A3A55006655BA /* AngleBrokingTest.xcdatamodeld */,
-				B8F3649A240A3EC3006655BA /* HomeTableViewCell.swift */,
-				B8F3649B240A3EC3006655BA /* HomeTableViewCell.xib */,
+				B8B0514E240A9F76005D1008 /* TableCells */,
 				B8F3649E240A3F12006655BA /* AppConstants.swift */,
 			);
 			path = AngleBrokingTest;
@@ -153,10 +191,12 @@
 			files = (
 				B8F3648E240A3A55006655BA /* AngleBrokingTest.xcdatamodeld in Sources */,
 				B8F3649F240A3F12006655BA /* AppConstants.swift in Sources */,
+				B8B05154240AA612005D1008 /* HomeDataModel.swift in Sources */,
 				B8F3649C240A3EC3006655BA /* HomeTableViewCell.swift in Sources */,
 				B8F36488240A3A55006655BA /* HomeViewController.swift in Sources */,
 				B8F36484240A3A55006655BA /* AppDelegate.swift in Sources */,
 				B8F36486240A3A55006655BA /* SceneDelegate.swift in Sources */,
+				B8B05151240A9FDE005D1008 /* HomeVIewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

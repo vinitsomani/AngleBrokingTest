@@ -8,7 +8,15 @@
 
 import UIKit
 
+
 class HomeTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+
+    @IBOutlet weak var userImage: UIImageView!
+    
+
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +27,10 @@ class HomeTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell() {
+        
     }
     
 }
