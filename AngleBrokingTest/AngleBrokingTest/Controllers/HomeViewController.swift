@@ -96,6 +96,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+      func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItemDelete = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            //delete pressed
+        }
+        let contextItemAdd = UIContextualAction(style: .normal, title: "Add") {  (contextualAction, view, boolValue) in
+            //add pressed
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItemDelete, contextItemAdd])
+
+        swipeActions.performsFirstActionWithFullSwipe = false
+        return swipeActions
+    }
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = tableView.contentOffset
 
