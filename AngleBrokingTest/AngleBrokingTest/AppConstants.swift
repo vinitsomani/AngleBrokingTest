@@ -7,5 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
 let HomeCellIdentifier = "HomeTableViewCell"
+let vScreenWidth       = UIScreen.main.bounds.width
+let vScreenHeight      = UIScreen.main.bounds.height

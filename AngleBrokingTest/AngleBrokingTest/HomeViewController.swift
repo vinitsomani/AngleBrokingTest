@@ -15,7 +15,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchView: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headingTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var headingCenterXConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var headingLeadingConstraint: NSLayoutConstraint!
+    
     
     
     var defaultOffSet: CGPoint?
@@ -69,22 +71,31 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let startOffset = self.defaultOffSet {
             if offset.y < startOffset.y {
                 // Scrolling down
-                // check if your collection view height is less than normal height, do your logic.
-
-
                 let deltaY = abs((startOffset.y - offset.y))
                 
                 
-                let maxDiff = (headingTopConstraint.constant + deltaY) <= 130 ? (headingTopConstraint.constant + deltaY) : 130
+                let maxYDiff = (headingTopConstraint.constant + deltaY) <= 130 ? (headingTopConstraint.constant + deltaY) : 130
                 
-                headingTopConstraint.constant = maxDiff
+                headingTopConstraint.constant = maxYDiff
                 
+                var changes = (30/130) * maxYDiff
+                
+                let maxXDiff = (headingLeadingConstraint.constant - changes) <= 0 ? 0 : (headingLeadingConstraint.constant - changes)
+                headingLeadingConstraint.constant = maxXDiff
 
             } else {
                 // Scrolling up
                 let deltaY = abs((startOffset.y - offset.y))
                 let maxDiff = (headingTopConstraint.constant - deltaY) >= 30 ? (headingTopConstraint.constant - deltaY) : 30
                 headingTopConstraint.constant = maxDiff
+                
+
+                var changes = (30/130) * maxDiff
+                
+                var midScreen = vScreenWidth/2 - headingLabel.bounds.width/2
+                
+                let maxXDiff = (headingLeadingConstraint.constant + changes) >= midScreen ? midScreen : (headingLeadingConstraint.constant + changes)
+                headingLeadingConstraint.constant = maxXDiff
             }
 
             self.view.layoutIfNeeded()
