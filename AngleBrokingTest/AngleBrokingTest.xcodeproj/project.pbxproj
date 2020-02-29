@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		B8F36484240A3A55006655BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F36483240A3A55006655BA /* AppDelegate.swift */; };
 		B8F36486240A3A55006655BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F36485240A3A55006655BA /* SceneDelegate.swift */; };
-		B8F36488240A3A55006655BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F36487240A3A55006655BA /* ViewController.swift */; };
+		B8F36488240A3A55006655BA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F36487240A3A55006655BA /* HomeViewController.swift */; };
 		B8F3648B240A3A55006655BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F36489240A3A55006655BA /* Main.storyboard */; };
 		B8F3648E240A3A55006655BA /* AngleBrokingTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8F3648C240A3A55006655BA /* AngleBrokingTest.xcdatamodeld */; };
 		B8F36490240A3A57006655BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F3648F240A3A57006655BA /* Assets.xcassets */; };
 		B8F36493240A3A57006655BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F36491240A3A57006655BA /* LaunchScreen.storyboard */; };
+		B8F3649C240A3EC3006655BA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3649A240A3EC3006655BA /* HomeTableViewCell.swift */; };
+		B8F3649D240A3EC3006655BA /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8F3649B240A3EC3006655BA /* HomeTableViewCell.xib */; };
+		B8F3649F240A3F12006655BA /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3649E240A3F12006655BA /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B8F36480240A3A55006655BA /* AngleBrokingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngleBrokingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F36483240A3A55006655BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8F36485240A3A55006655BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B8F36487240A3A55006655BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B8F36487240A3A55006655BA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B8F3648A240A3A55006655BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8F3648D240A3A55006655BA /* AngleBrokingTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AngleBrokingTest.xcdatamodel; sourceTree = "<group>"; };
 		B8F3648F240A3A57006655BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8F36492240A3A57006655BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8F36494240A3A57006655BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8F3649A240A3EC3006655BA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		B8F3649B240A3EC3006655BA /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		B8F3649E240A3F12006655BA /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +66,15 @@
 			children = (
 				B8F36483240A3A55006655BA /* AppDelegate.swift */,
 				B8F36485240A3A55006655BA /* SceneDelegate.swift */,
-				B8F36487240A3A55006655BA /* ViewController.swift */,
+				B8F36487240A3A55006655BA /* HomeViewController.swift */,
 				B8F36489240A3A55006655BA /* Main.storyboard */,
 				B8F3648F240A3A57006655BA /* Assets.xcassets */,
 				B8F36491240A3A57006655BA /* LaunchScreen.storyboard */,
 				B8F36494240A3A57006655BA /* Info.plist */,
 				B8F3648C240A3A55006655BA /* AngleBrokingTest.xcdatamodeld */,
+				B8F3649A240A3EC3006655BA /* HomeTableViewCell.swift */,
+				B8F3649B240A3EC3006655BA /* HomeTableViewCell.xib */,
+				B8F3649E240A3F12006655BA /* AppConstants.swift */,
 			);
 			path = AngleBrokingTest;
 			sourceTree = "<group>";
@@ -130,6 +139,7 @@
 			files = (
 				B8F36493240A3A57006655BA /* LaunchScreen.storyboard in Resources */,
 				B8F36490240A3A57006655BA /* Assets.xcassets in Resources */,
+				B8F3649D240A3EC3006655BA /* HomeTableViewCell.xib in Resources */,
 				B8F3648B240A3A55006655BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F3648E240A3A55006655BA /* AngleBrokingTest.xcdatamodeld in Sources */,
-				B8F36488240A3A55006655BA /* ViewController.swift in Sources */,
+				B8F3649F240A3F12006655BA /* AppConstants.swift in Sources */,
+				B8F3649C240A3EC3006655BA /* HomeTableViewCell.swift in Sources */,
+				B8F36488240A3A55006655BA /* HomeViewController.swift in Sources */,
 				B8F36484240A3A55006655BA /* AppDelegate.swift in Sources */,
 				B8F36486240A3A55006655BA /* SceneDelegate.swift in Sources */,
 			);
@@ -291,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PR2MFMFL7V;
 				INFOPLIST_FILE = AngleBrokingTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PR2MFMFL7V;
 				INFOPLIST_FILE = AngleBrokingTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

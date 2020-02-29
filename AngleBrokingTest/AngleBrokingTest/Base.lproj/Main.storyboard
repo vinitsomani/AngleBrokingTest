@@ -1,24 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="AngleBrokingTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQH-5j-xvW">
+                                <rect key="frame" x="18.5" y="164" width="277" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANd-VC-qGv">
+                                <rect key="frame" x="0.0" y="226" width="414" height="636"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XME-h9-akQ">
+                                        <rect key="frame" x="16" y="16" width="382" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="aEO-bj-sUJ"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qZu-L3-05G">
+                                        <rect key="frame" x="20" y="76" width="374" height="540"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="FHk-OE-csD"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="PXC-EK-X5t"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="XME-h9-akQ" firstAttribute="top" secondItem="ANd-VC-qGv" secondAttribute="top" constant="16" id="Fnc-Om-H7P"/>
+                                    <constraint firstAttribute="trailing" secondItem="XME-h9-akQ" secondAttribute="trailing" constant="16" id="N00-7T-CNm"/>
+                                    <constraint firstItem="XME-h9-akQ" firstAttribute="leading" secondItem="ANd-VC-qGv" secondAttribute="leading" constant="16" id="WgG-jZ-moC"/>
+                                    <constraint firstAttribute="bottom" secondItem="qZu-L3-05G" secondAttribute="bottom" constant="20" symbolic="YES" id="cb7-bk-nBN"/>
+                                    <constraint firstItem="qZu-L3-05G" firstAttribute="top" secondItem="XME-h9-akQ" secondAttribute="bottom" constant="16" id="dbw-on-UyO"/>
+                                    <constraint firstAttribute="trailing" secondItem="qZu-L3-05G" secondAttribute="trailing" constant="20" symbolic="YES" id="h8U-Yk-6o0"/>
+                                    <constraint firstItem="qZu-L3-05G" firstAttribute="leading" secondItem="ANd-VC-qGv" secondAttribute="leading" constant="20" symbolic="YES" id="qYe-Cf-6p6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TQH-5j-xvW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-50" id="7ef-Bl-il1"/>
+                            <constraint firstItem="ANd-VC-qGv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="C7c-lJ-AtX"/>
+                            <constraint firstItem="TQH-5j-xvW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="cHO-HL-Yw2"/>
+                            <constraint firstItem="ANd-VC-qGv" firstAttribute="top" secondItem="TQH-5j-xvW" secondAttribute="bottom" constant="8" id="hb4-sV-Naa"/>
+                            <constraint firstItem="ANd-VC-qGv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iQE-32-VLK"/>
+                            <constraint firstItem="ANd-VC-qGv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v7R-Vq-Br2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="headingCenterXConstraint" destination="7ef-Bl-il1" id="KIj-FJ-aV2"/>
+                        <outlet property="headingLabel" destination="TQH-5j-xvW" id="Jku-AB-shS"/>
+                        <outlet property="headingTopConstraint" destination="cHO-HL-Yw2" id="zDX-Kd-Z52"/>
+                        <outlet property="hoderView" destination="ANd-VC-qGv" id="jWb-yN-I4C"/>
+                        <outlet property="searchView" destination="XME-h9-akQ" id="NTb-4s-S7t"/>
+                        <outlet property="tableView" destination="qZu-L3-05G" id="Rv7-Ee-MQa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="88.392857142857139"/>
         </scene>
     </scenes>
 </document>
