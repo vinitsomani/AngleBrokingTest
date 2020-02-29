@@ -29,8 +29,8 @@ class HomeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell() {
-        
+    func populateData(item: User) {
+        self.titleLabel.text = item.display_name
     }
-    
 }
+

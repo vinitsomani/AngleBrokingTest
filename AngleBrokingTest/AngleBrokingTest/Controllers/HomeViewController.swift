@@ -12,11 +12,16 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var hoderView: UIView!
-    @IBOutlet weak var searchView: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headingTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var headingLeadingConstraint: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     
     
@@ -24,11 +29,12 @@ class HomeViewController: UIViewController {
     var labelMaxTop = 130
     var labelMinTop = 30
     
+    var homeViewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureTableView()
+        configureHomeView()
         // Do any additional setup after loading the view.
     }
     
@@ -39,19 +45,36 @@ class HomeViewController: UIViewController {
     }
     
     
-    private func configureTableView() {
+    private func configureHomeView() {
         self.tableView.register(UINib(nibName: HomeCellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCellIdentifier)
-        self.tableView.reloadData()
+        searchBar.delegate = self
+        listenToReloadClosure()
+        getHomeData()
     }
-
-
+    
+    func listenToReloadClosure() {
+        homeViewModel.reloadTableView = { [weak self] in
+            guard let self = self else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.activity.stopAnimating()
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func getHomeData() {
+        activity.startAnimating()
+        homeViewModel.callHomeData()
+    }
 }
 
 
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return self.homeViewModel.userItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +83,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        tableViewCell.textLabel?.text = "\(indexPath.row)"
+        let userModel = self.homeViewModel.userItems[indexPath.row]
+        tableViewCell.populateData(item: userModel)
         return tableViewCell
     }
     
@@ -103,3 +127,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+//MARK:- Searchbar Delegate
+extension HomeViewController: UISearchBarDelegate
+{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0 {
+            self.tableView.reloadData()
+            self.view.endEditing(true)
+        }
+        if searchText.count > 1 {
+//            self.homeViewModel.filterMoviesBy(text: searchText)
+        }
+    }
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+    func fetchingFailed(_ shouldRetry: Bool, message: String) {
+        DispatchQueue.main.async {
+            self.activity.stopAnimating()
+        }
+    }
+}

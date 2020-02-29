@@ -51,25 +51,33 @@
                                     <constraint firstItem="qZu-L3-05G" firstAttribute="leading" secondItem="ANd-VC-qGv" secondAttribute="leading" constant="20" symbolic="YES" id="qYe-Cf-6p6"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GSb-rN-zop">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ANd-VC-qGv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="C7c-lJ-AtX"/>
+                            <constraint firstItem="GSb-rN-zop" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="INx-uK-cdU"/>
                             <constraint firstItem="TQH-5j-xvW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QbZ-ZP-DOQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TQH-5j-xvW" secondAttribute="trailing" symbolic="YES" id="UMx-gw-4ny"/>
+                            <constraint firstItem="GSb-rN-zop" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VB0-6Y-N9z"/>
                             <constraint firstItem="TQH-5j-xvW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="cHO-HL-Yw2"/>
                             <constraint firstItem="ANd-VC-qGv" firstAttribute="top" secondItem="TQH-5j-xvW" secondAttribute="bottom" constant="8" id="hb4-sV-Naa"/>
                             <constraint firstItem="ANd-VC-qGv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iQE-32-VLK"/>
+                            <constraint firstItem="GSb-rN-zop" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uQY-bY-ZhY"/>
                             <constraint firstItem="ANd-VC-qGv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v7R-Vq-Br2"/>
+                            <constraint firstItem="GSb-rN-zop" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xje-J9-q2E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="GSb-rN-zop" id="187-4T-83H"/>
                         <outlet property="headingLabel" destination="TQH-5j-xvW" id="Jku-AB-shS"/>
                         <outlet property="headingLeadingConstraint" destination="QbZ-ZP-DOQ" id="Vhs-aD-YmA"/>
                         <outlet property="headingTopConstraint" destination="cHO-HL-Yw2" id="zDX-Kd-Z52"/>
                         <outlet property="hoderView" destination="ANd-VC-qGv" id="jWb-yN-I4C"/>
-                        <outlet property="searchView" destination="XME-h9-akQ" id="NTb-4s-S7t"/>
+                        <outlet property="searchBar" destination="XME-h9-akQ" id="bn2-My-ShD"/>
                         <outlet property="tableView" destination="qZu-L3-05G" id="Rv7-Ee-MQa"/>
                     </connections>
                 </viewController>

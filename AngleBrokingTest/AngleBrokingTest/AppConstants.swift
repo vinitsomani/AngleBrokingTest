@@ -12,3 +12,7 @@ import UIKit
 let HomeCellIdentifier = "HomeTableViewCell"
 let vScreenWidth       = UIScreen.main.bounds.width
 let vScreenHeight      = UIScreen.main.bounds.height
+
+//urls
+let homeServiceUrl = "https://api.myjson.com/bins/6c3je"
+
