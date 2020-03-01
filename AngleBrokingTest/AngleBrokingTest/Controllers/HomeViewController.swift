@@ -122,30 +122,39 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             if offset.y < startOffset.y {
                 // Scrolling down
                 let deltaY = abs((startOffset.y - offset.y))
-                
-                
                 let maxYDiff = (headingTopConstraint.constant + deltaY) <= 130 ? (headingTopConstraint.constant + deltaY) : 130
+
                 
                 headingTopConstraint.constant = maxYDiff
-                
-                var changes = (30/130) * maxYDiff
-                
-                let maxXDiff = (headingLeadingConstraint.constant - changes) <= 0 ? 0 : (headingLeadingConstraint.constant - changes)
-                headingLeadingConstraint.constant = maxXDiff
 
+                let scale = min(max(1.0 - deltaY / 100, 0.0), 1.0)
+                if headingTopConstraint.constant == 130 {
+                    headingLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//                    headingLeadingConstraint.constant = 0
+                }
+                else {
+                    headingLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
+//                    headingLeadingConstraint.constant = headingLeadingConstraint.constant + deltaY
+                }
+                
+                
             } else {
                 // Scrolling up
                 let deltaY = abs((startOffset.y - offset.y))
-                let maxDiff = (headingTopConstraint.constant - deltaY) >= 30 ? (headingTopConstraint.constant - deltaY) : 30
-                headingTopConstraint.constant = maxDiff
-                
+                let maxDiff = (headingTopConstraint.constant - deltaY) >= 10 ? (headingTopConstraint.constant - deltaY) : 10
+                    let scale = min(max(1.0 - deltaY / 100, 0.0), 1.0)
 
-                var changes = (30/130) * maxDiff
                 
-                var midScreen = vScreenWidth/2 - headingLabel.bounds.width/2
+                headingTopConstraint.constant = maxDiff
+                if headingTopConstraint.constant == 10 {
+                    headingLabel.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+//                    headingLeadingConstraint.constant = vScreenWidth/2 - headingLabel.frame.width/2
+                }
+                else {
+                    headingLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
+//                    headingLeadingConstraint.constant = headingLeadingConstraint.constant + maxDiff
+                }
                 
-                let maxXDiff = (headingLeadingConstraint.constant + changes) >= midScreen ? midScreen : (headingLeadingConstraint.constant + changes)
-                headingLeadingConstraint.constant = maxXDiff
             }
 
             self.view.layoutIfNeeded()

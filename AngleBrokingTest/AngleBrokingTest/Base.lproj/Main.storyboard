@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQH-5j-xvW">
-                                <rect key="frame" x="0.0" y="164" width="277" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQH-5j-xvW">
+                                <rect key="frame" x="15" y="164" width="138.5" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                         <constraints>
                             <constraint firstItem="ANd-VC-qGv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="C7c-lJ-AtX"/>
                             <constraint firstItem="GSb-rN-zop" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="INx-uK-cdU"/>
-                            <constraint firstItem="TQH-5j-xvW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QbZ-ZP-DOQ"/>
+                            <constraint firstItem="TQH-5j-xvW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="QbZ-ZP-DOQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TQH-5j-xvW" secondAttribute="trailing" symbolic="YES" id="UMx-gw-4ny"/>
                             <constraint firstItem="GSb-rN-zop" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VB0-6Y-N9z"/>
                             <constraint firstItem="TQH-5j-xvW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="cHO-HL-Yw2"/>
