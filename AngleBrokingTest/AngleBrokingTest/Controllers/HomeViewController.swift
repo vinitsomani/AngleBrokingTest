@@ -10,50 +10,33 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var hoderView: UIView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headingTopConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var headingLeadingConstraint: NSLayoutConstraint!
-    
-    
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    
-    
     @IBOutlet weak var noDataLabel: UILabel!
-    
-    
-    
-    var defaultOffSet: CGPoint?
-    var labelMaxTop = 130
-    var labelMinTop = 30
     
     var homeViewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureHomeView()
-        // Do any additional setup after loading the view.
+        configureSearchOnNavigation()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        defaultOffSet = tableView.contentOffset
-    }
-    
-    
+
     private func configureHomeView() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "User View"
         self.tableView.register(UINib(nibName: HomeCellIdentifier, bundle: nil), forCellReuseIdentifier: HomeCellIdentifier)
-        searchBar.delegate = self
         noDataLabel.isHidden = true
         listenToReloadClosure()
         getHomeData()
+    }
+    
+    private func configureSearchOnNavigation() {
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+        searchController.searchBar.showsCancelButton = false
     }
     
     func listenToReloadClosure() {
@@ -79,7 +62,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        noDataLabel.isHidden = (self.searchBar.text?.count ?? 0 > 2 && self.homeViewModel.userFilteredtems.count == 0) ? false : true
+        noDataLabel.isHidden = (self.navigationItem.searchController?.searchBar.text?.count ?? 0 > 2 && self.homeViewModel.userFilteredtems.count == 0) ? false : true
 
         return self.homeViewModel.userFilteredtems.count
     }
@@ -112,53 +95,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         swipeActions.performsFirstActionWithFullSwipe = false
         return swipeActions
-    }
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = tableView.contentOffset
-
-        if let startOffset = self.defaultOffSet {
-            if offset.y < startOffset.y {
-                // Scrolling down
-                let deltaY = abs((startOffset.y - offset.y))
-                let maxYDiff = (headingTopConstraint.constant + deltaY) <= 130 ? (headingTopConstraint.constant + deltaY) : 130
-
-                
-                headingTopConstraint.constant = maxYDiff
-
-                let scale = min(max(1.0 - deltaY / 100, 0.0), 1.0)
-                if headingTopConstraint.constant == 130 {
-                    headingLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-//                    headingLeadingConstraint.constant = 0
-                }
-                else {
-                    headingLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
-//                    headingLeadingConstraint.constant = headingLeadingConstraint.constant + deltaY
-                }
-                
-                
-            } else {
-                // Scrolling up
-                let deltaY = abs((startOffset.y - offset.y))
-                let maxDiff = (headingTopConstraint.constant - deltaY) >= 10 ? (headingTopConstraint.constant - deltaY) : 10
-                    let scale = min(max(1.0 - deltaY / 100, 0.0), 1.0)
-
-                
-                headingTopConstraint.constant = maxDiff
-                if headingTopConstraint.constant == 10 {
-                    headingLabel.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-//                    headingLeadingConstraint.constant = vScreenWidth/2 - headingLabel.frame.width/2
-                }
-                else {
-                    headingLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
-//                    headingLeadingConstraint.constant = headingLeadingConstraint.constant + maxDiff
-                }
-                
-            }
-
-            self.view.layoutIfNeeded()
-        }
     }
 }
 
